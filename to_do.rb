@@ -142,8 +142,9 @@ def task_menu(list, id)
   puts "\n"
   puts "Press 'c' to mark the task complete."
   puts "Press 'd' to set a new due date."
-  puts "Press 'p' to change the priority"
+  puts "Press 'p' to change the priority."
   puts "Press 'm' to return to the main menu."
+  puts "Press 'r' to remove the task."
 
   puts "\n"
 
@@ -151,7 +152,7 @@ def task_menu(list, id)
 
   if task_choice == 'm'
     main_menu
-  elsif task_choice != 'd' && task_choice != 'c' && task_choice != 'p'
+  elsif task_choice != 'd' && task_choice != 'c' && task_choice != 'p' && task_choice != 'r'
     puts "That was still not a valid choice. You are bad at this."
     task_menu(list,id)
     puts "\n"
@@ -160,6 +161,8 @@ def task_menu(list, id)
       current_task.mark_done
       puts "Marked complete."
       puts "\n"
+    elsif task_choice == 'r'
+      list.delete_task(current_task)
     elsif task_choice == 'd'
       puts "Please enter a due date: \n"
       new_due_date = gets.chomp

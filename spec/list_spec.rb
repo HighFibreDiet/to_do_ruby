@@ -53,5 +53,16 @@ describe List do
       test_list.tasks.should eq [test_task2, test_task]
     end
   end
+  describe 'delete_task' do
+    it 'deletes a specific task from the tasks array' do
+      test_list = List.new('Llama things')
+      test_task2 = Task.new('bother the llama', 1)
+      test_task  = Task.new('pet the llama', 2)
+      test_list.add_task(test_task)
+      test_list.add_task(test_task2)
+      test_list.delete_task(test_task2)
+      test_list.tasks.should eq [test_task]
+    end
+  end
 
 end
