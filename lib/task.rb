@@ -3,6 +3,7 @@ class Task
     @description = description
     @done = false
     @id = index
+    @priority = 1
   end
 
   def id
@@ -15,6 +16,14 @@ class Task
 
   def due_date
     @due_date
+  end
+
+  def set_priority(priority)
+    @priority = priority
+  end
+
+  def priority
+    @priority
   end
 
   def done?
